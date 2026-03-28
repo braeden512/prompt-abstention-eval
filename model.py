@@ -2,7 +2,7 @@ import ollama
 # import constants from config file
 from config import MODEL_NAME, OLLAMA_OPTIONS, PROMPTS
 
-# query the model under a given condition (explicit, implicit, or baseline)
+# query the model under a given condition (explicit or implicit)
 def query(question: str, context: str, condition: str) -> str:
     if condition not in PROMPTS:
         raise ValueError(f"Unknown condition '{condition}'. "

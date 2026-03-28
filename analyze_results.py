@@ -31,8 +31,8 @@ def plot_metrics(metrics_by_condition: dict, save_path="results/metrics_comparis
     
     fig, axes = plt.subplots(1, 3, figsize=(14, 5))
     fig.suptitle(
-        "Prompt Variation Study: LLaMA 3 8B on SQuAD2.0\n"
-        "Explicit vs. Implicit vs. Baseline Abstention Instruction", fontsize=12
+        "Passage-Grounded Prompt Study: LLaMA 3 8B on SQuAD2.0\n"
+        "Explicit vs. Implicit Abstention Instruction", fontsize=12
     )
     
     for ax, (key, label) in zip(axes, metrics):

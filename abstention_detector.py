@@ -13,7 +13,7 @@ ABSTENTION_PHRASES = [
     "not enough information",
     "insufficient information",
     "no information",
-    # RAG style refusals
+    # passage-grounded style refusals
     "the passage does not",
     "the passage doesn't",
     "the context does not",

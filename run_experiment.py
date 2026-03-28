@@ -70,7 +70,7 @@ def main():
     all_questions = answerable + unanswerable
     print(f"Total questions: {len(all_questions)}")
 
-    # run all three conditions
+    # run both conditions
     all_results = {}
     conditions = list(PROMPTS.keys())
 
