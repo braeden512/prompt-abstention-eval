@@ -11,8 +11,8 @@ SAMPLE_PER_SPLIT = 500
 # random seed for reproducibility
 RANDOM_SEED = 42
 
-# output paths
-RESULTS_DIR = "results"
+# output paths (relative to src/ directory where scripts are run from)
+RESULTS_DIR = "../results"
 
 # Explicit: Scripts the exact refusal phrase. Tests whether explicitly telling the model to say a specific phrase when it can't answer leads to better abstention behavior.
 PROMPT_EXPLICIT = """You are a reading comprehension assistant. Answer the question using only the information in the passage below.

@@ -17,35 +17,33 @@ Both conditions receive identical passages and questions. Only the prompt templa
 
 Note: This is passage-grounded generation, not full RAG with retrieval. Passages are supplied directly in the prompt rather than retrieved from a document store. This design isolates prompt-level abstention instruction as the sole independent variable.
 
-## Project Structure
-
-```
-RAG_Prompt_Style_Study/
-- README.md
-- requirements.txt
-- config.py               # All settings and two prompt templates
-- data_loader.py          # Load and partition SQuAD2.0
-- model.py                # Ollama model interface
-- abstention_detector.py  # Detect abstentions in outputs
-- evaluator.py            # Compute metrics
-- run_experiment.py       # Main script
-- analyze_results.py      # Generate summary stats & plots
-- results/                # Output saved here
-```
-
 ## Setup
 
-### 1. Install Ollama and pull the model
+### 1. Create virtual environment
 
-`ollama pull llama3:8b-instruct`
+```bash
+python3 -m venv venv
+source venv/bin/activate # On Windows: venv/Scripts/activate
+```
 
 ### 2. Install Python dependencies
 
 `pip install -r requirements.txt`
 
-### 3. Run the experiment
+### 3. Install Ollama and pull the model
 
 ```bash
+sudo snap install ollama
+ollama pull llama3:8b
+```
+
+### 3. Run the experiment
+
+Navigate to the `src/` directory and run the experiment:
+
+```bash
+cd src
+
 # quick test with 10 questions per split (recommended first run)
 python run_experiment.py --sample 10
 
@@ -58,27 +56,14 @@ python run_experiment.py --sample 500
 # use default sample size from experiment
 python run_experiment.py
 
-# analyze results after run completes
+# analyze results / generate plots after run completes
 python analyze_results.py
 ```
+
+Results will be saved to the `results/` directory in the project root.
 
 ## Metrics
 
 - **Abstention Rate** - % of unanswerable questions where model abstained
 - **Hallucination Rate** - % of unanswerable questions where model gave an answer
 - **Answer Attempt Rate** - % of answerable questions where model tried to answer
-
-## Reproducing Results
-
-1. Install dependencies:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-2. Ensure Ollama is running with `llama3:8b-instruct` model
-3. Run experiment: `python run_experiment.py`
-4. Results will be saved to `results/` directory
-5. Generate plots: `python analyze_results.py`

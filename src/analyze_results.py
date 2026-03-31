@@ -20,7 +20,7 @@ def load_latest_results():
     return all_results
 
 # function to generate bar charts comparing metrics across conditions
-def plot_metrics(metrics_by_condition: dict, save_path="results/metrics_comparison.png"):
+def plot_metrics(metrics_by_condition: dict, save_path=None):
     conditions = list(metrics_by_condition.keys())
     metrics = [
         ("abstention_rate", "Abstention Rate\n(unanswerable)"),
@@ -49,6 +49,8 @@ def plot_metrics(metrics_by_condition: dict, save_path="results/metrics_comparis
                    f"{val:.1%}", ha="center", va="bottom", fontsize=11, fontweight="bold")
     
     plt.tight_layout()
+    if save_path is None:
+        save_path = os.path.join(RESULTS_DIR, "metrics_comparison.png")
     plt.savefig(save_path, dpi=150, bbox_inches="tight")
     print(f"Plot saved to {save_path}")
     plt.show()

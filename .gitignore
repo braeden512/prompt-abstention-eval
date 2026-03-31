@@ -31,9 +31,6 @@ ENV/
 env.bak/
 venv.bak/
 
-# Experimental results
-results/
-
 # IDE and editor files
 .vscode/
 .idea/
