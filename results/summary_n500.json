@@ -1,0 +1,17 @@
+{
+  "sample_size": 500,
+  "explicit": {
+    "n_unanswerable": 500,
+    "n_answerable": 500,
+    "abstention_rate": 0.784,
+    "hallucination_rate": 0.216,
+    "answer_attempt_rate": 0.792
+  },
+  "implicit": {
+    "n_unanswerable": 500,
+    "n_answerable": 500,
+    "abstention_rate": 0.528,
+    "hallucination_rate": 0.472,
+    "answer_attempt_rate": 0.968
+  }
+}

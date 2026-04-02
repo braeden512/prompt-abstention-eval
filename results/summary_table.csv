@@ -1,0 +1,3 @@
+Condition,N (unanswerable),N (answerable),Abstention Rate,Hallucination Rate,Answer Attempt Rate
+Explicit,500,500,78.4%,21.6%,79.2%
+Implicit,500,500,52.8%,47.2%,96.8%

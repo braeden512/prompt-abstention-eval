@@ -28,6 +28,8 @@ source venv/bin/activate # On Windows: venv/Scripts/activate
 
 ### 2. Install Python dependencies
 
+`cd src/`
+
 `pip install -r requirements.txt`
 
 ### 3. Install Ollama and pull the model

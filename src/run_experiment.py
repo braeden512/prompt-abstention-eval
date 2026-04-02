@@ -61,6 +61,7 @@ def load_results(filename: str) -> list[dict]:
 
 def main():
     parser = argparse.ArgumentParser()
+    # default is 500 per split
     parser.add_argument("--sample", type=int, default=SAMPLE_PER_SPLIT)
     args = parser.parse_args()
 
