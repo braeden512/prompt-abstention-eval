@@ -9,22 +9,20 @@ OLLAMA_OPTIONS = {
 SAMPLE_PER_SPLIT = 500
 
 # random seed for reproducibility
-RANDOM_SEED = 42
+RANDOM_SEED = 1
 
 # output paths (relative to src/ directory where scripts are run from)
 RESULTS_DIR = "../results"
 
 # Explicit: Scripts the exact refusal phrase. Tests whether explicitly telling the model to say a specific phrase when it can't answer leads to better abstention behavior.
-PROMPT_EXPLICIT = """You are a reading comprehension assistant. Answer the question using only the information in the passage below.
+PROMPT_EXPLICIT = """Answer the question using only the information in the passage below.
 If the passage does not contain enough information to answer the question, you must respond with exactly: "The passage does not contain enough information to answer this question."
 Do not use any outside knowledge.
 
 Passage:
 {context}
 
-Question: {question}
-
-Answer:"""
+Question: {question}"""
 
 
 # Implicit: Constrains the model to the passage but doesn't script the refusal phrase. Tests whether passage-grounding alone is enough for the model to figure out abstention on its own.
@@ -35,9 +33,7 @@ Do not use any outside knowledge.
 Passage:
 {context}
 
-Question: {question}
-
-Answer:"""
+Question: {question}"""
 
 # map names to prompt templates
 PROMPTS = {
