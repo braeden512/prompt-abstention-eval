@@ -22,14 +22,6 @@ The following describes the environment used to run the experiment. The setup is
 
 ## Environment Setup
 
-### Install ollama via snap
-
-`sudo snap install ollama`
-
-### Pull the model
-
-`ollama pull lama3:8b`
-
 ### Clone the project
 
 `git clone https://github.com/braeden512/prompt-abstention-eval.git`
@@ -38,25 +30,50 @@ The following describes the environment used to run the experiment. The setup is
 
 `cd prompt-abstention-eval`
 
-### Create and activate virtual environment
+### Create virtual environment
 
-`python3 -m venv venv`
+```bash
+python3 -m venv venv
+source venv/bin/activate # On Windows: venv/Scripts/activate
+```
 
-`source venv/bin/activate`
+### Install Python dependencies
 
-### Install dependencies
-
-`cd src`
+`cd src/`
 
 `pip install -r requirements.txt`
 
+### Install Ollama and pull the model
+
+```bash
+sudo snap install ollama
+ollama pull llama3:8b
+```
+
 ### Run the experiment
 
-`python run_experiment.py`
+Navigate to the `src/` directory and run the experiment:
 
-### Analyze results
+```bash
+cd src
 
-`python analyze_results.py`
+# quick test with 10 questions per split (recommended first run)
+python run_experiment.py --sample 10
+
+# medium run
+python run_experiment.py --sample 250
+
+# full run
+python run_experiment.py --sample 500
+
+# use default sample size from experiment
+python run_experiment.py
+
+# analyze results / generate plots after run completes
+python analyze_results.py
+```
+
+Results will be saved to the `results/` directory in the project root.
 
 ---
 
